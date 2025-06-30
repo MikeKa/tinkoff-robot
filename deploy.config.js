@@ -6,7 +6,7 @@ const env = dotenv.parse(fs.readFileSync(path.resolve(__dirname, './.env')));
 
 module.exports = {
   useCliConfig: true,
-  functionName: 'tinkoff-robot',
+  functionName: 'tinkoff-robot-sa',
   deploy: {
     files: [ 'package*.json', 'dist/**' ],
     handler: 'dist/serverless/cjs/index.handler',
