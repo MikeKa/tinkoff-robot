@@ -8,14 +8,14 @@
 import fs from 'fs';
 import MockDate from 'mockdate';
 import { Helpers } from 'tinkoff-invest-api';
-import { Robot } from '../src/robot.js';
-import { config } from '../src/config.js';
+import { Robot } from '../dist/robot.js';
+import { config } from '../dist/config.js';
 import { OperationState, OperationType } from 'tinkoff-invest-api/dist/generated/operations.js';
-import { backtestApi as api } from './init-api.js';
+import { backtestApi as api } from './init-api.ts';
 
 // Диапазон дат для бэктеста
-const from = new Date('2022-04-29T10:00:00+03:00');
-const to = new Date('2022-04-29T15:00:00+03:00');
+const from = new Date('2024-06-19T10:00:00+03:00');
+const to = new Date('2024-06-29T15:00:00+03:00');
 
 // Для бэктеста оставляем только первую стратегию
 config.strategies = config.strategies.slice(0, 1);

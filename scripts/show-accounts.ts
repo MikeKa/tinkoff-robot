@@ -6,7 +6,7 @@ import { RealAccount, SandboxAccount, TinkoffAccount } from 'tinkoff-invest-api'
 import { Operation, OperationState, PortfolioPosition, PortfolioResponse } from 'tinkoff-invest-api/dist/generated/operations.js';
 import { OrderDirection, OrderExecutionReportStatus, OrderState } from 'tinkoff-invest-api/dist/generated/orders.js';
 import { Account } from 'tinkoff-invest-api/dist/generated/users.js';
-import { api } from './init-api.js';
+import { api } from './init-api.ts';
 
 const OPERATIONS_PERIOD = '-1y';
 

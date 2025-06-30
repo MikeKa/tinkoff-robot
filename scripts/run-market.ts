@@ -13,9 +13,9 @@
  * Для разового запуска по расписанию можно указать флаг cron:
  * npx ts-node-esm scripts/run-market.ts --real --dry-run --cron
  */
-import { api } from './init-api.js';
-import { Robot } from '../src/robot.js';
-import { config } from '../src/config.js';
+import { api } from './init-api.ts';
+import { Robot } from '../dist/robot.js';
+import { config } from '../dist/config.js';
 import { CandleInterval } from 'tinkoff-invest-api/dist/generated/marketdata.js';
 
 const cliFlags = {

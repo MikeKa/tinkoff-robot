@@ -12,10 +12,9 @@ export const config: RobotConfig = {
   logLevel: 'info',
   /** Используемые стратегии: */
   strategies: [
-    getStrategyConfig('BBG004731354'), // Роснефть
-    getStrategyConfig('BBG008F2T3T2'), // РУСАЛ
-    getStrategyConfig('BBG004S68829'), // Татнефть
-    getStrategyConfig('BBG000BN56Q9'), // Детский Мир
+    //getStrategyConfig('BBG004731354'), // Роснефть
+    //getStrategyConfig('BBG004730JK3'), // MOEX
+    //getStrategyConfig('BBG004S68829'), // Татнефть
     getStrategyConfig('BBG004730N88'), // Сбер
   ]
 };

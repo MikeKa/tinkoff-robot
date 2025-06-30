@@ -4,7 +4,7 @@
  */
 
 import { Helpers } from 'tinkoff-invest-api';
-import { api } from './init-api.js';
+import { api } from './init-api.ts';
 
 main();
 
