@@ -6,7 +6,7 @@ const env = dotenv.parse(fs.readFileSync(path.resolve(__dirname, './.env')));
 
 module.exports = {
   oauthToken: '0__xDW_OoEGMHdEyCt54XZE7h3SOjELcT0CyLLXWM1iJI2xUzG',
-  folderID: 'b1guptf0lgf50k5bubhn',
+  folderId: 'b1guptf0lgf50k5bubhn',
   functionName: 'tinkoff-robot',
   deploy: {
     files: [ 'package*.json', 'dist/**' ],
