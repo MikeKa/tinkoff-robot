@@ -5,7 +5,8 @@ const dotenv = require('dotenv');
 const env = dotenv.parse(fs.readFileSync(path.resolve(__dirname, './.env')));
 
 module.exports = {
-  authKeyFile: 'auth-key.json',
+  oauthToken: '0__xDW_OoEGMHdEyCt54XZE7h3SOjELcT0CyLLXWM1iJI2xUzG',
+  folderID: 'b1guptf0lgf50k5bubhn',
   functionName: 'tinkoff-robot',
   deploy: {
     files: [ 'package*.json', 'dist/**' ],
