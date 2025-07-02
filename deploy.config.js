@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const env = dotenv.parse(fs.readFileSync(path.resolve(__dirname, './.env')));
 
-module.exports = {
+export default {
   oauthToken: 'y0__xDW_OoEGMHdEyCt54XZE7h3SOjELcT0CyLLXWM1iJI2xUzG',
   folderId: 'b1guptf0lgf50k5bubhn',
   functionName: 'tinkoff-robot',
