@@ -8,6 +8,10 @@ npm-debug.log
 # env
 .env*
 
+#config
+auth-key.json
+deploy.comfig.js
+
 dist
 /.cache
 /todo.txt
