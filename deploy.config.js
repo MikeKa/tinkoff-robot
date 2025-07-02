@@ -2,6 +2,8 @@
 import fs from 'fs';
 import path from 'path';
 import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const env = dotenv.parse(fs.readFileSync(path.resolve(__dirname, './.env')));
 
 module.exports = {
