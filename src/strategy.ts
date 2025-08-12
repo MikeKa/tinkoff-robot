@@ -21,6 +21,7 @@ import { SmaCrossoverSignal, SmaCrossoverSignalConfig } from './signals/sma-cors
 import { FigiInstrument } from './figi.js';
 import { OrderDirection } from 'tinkoff-invest-api/dist/generated/orders.js';
 import { RsiCrossoverSignal, RsiCrossoverSignalConfig } from './signals/rsi-crossover.js';
+import { VolatilityCrossoverSignal, VolatilityCrossoverSignalConfig } from './signals/volatility-crossover.js';
 import { Logger } from '@vitalets/logger';
 
 export interface StrategyConfig {
@@ -38,6 +39,8 @@ export interface StrategyConfig {
   sma?: SmaCrossoverSignalConfig,
   /** Конфиг сигнала по RSI */
   rsi?: RsiCrossoverSignalConfig,
+  /** Конфиг сигнала по RSI */
+  volatility?: VolatilityCrossoverSignalConfig,
 }
 
 export class Strategy extends RobotModule {
