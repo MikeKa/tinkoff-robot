@@ -1,10 +1,10 @@
 /**
  * Стратегия торговли.
- * Используются 3 сигнала:
+ * Используются 4 сигнала:
  * - при сильном отклонении текущей цены от начальной происходит продажа актива (takeProfit / stopLoss)
  * - пересечение скользящих средних
  * - пересечение RSI заданных уровней
- *
+ * - пересечение границ волатильности
  * Особенности:
  * - все заявки выставляются только лимитные
  * - если актив уже куплен, то повторной покупки не происходит
@@ -39,7 +39,7 @@ export interface StrategyConfig {
   sma?: SmaCrossoverSignalConfig,
   /** Конфиг сигнала по RSI */
   rsi?: RsiCrossoverSignalConfig,
-  /** Конфиг сигнала по RSI */
+  /** Конфиг сигнала по Volatility */
   volatility?: VolatilityCrossoverSignalConfig,
 }
 
@@ -51,6 +51,7 @@ export class Strategy extends RobotModule {
   profitSignal?: ProfitLossSignal;
   smaSignal?: SmaCrossoverSignal;
   rsiSignal?: RsiCrossoverSignal;
+  volatilitySignal?: VolatilityCrossoverSignal;
 
   constructor(robot: Robot, public config: StrategyConfig) {
     super(robot);
@@ -59,6 +60,7 @@ export class Strategy extends RobotModule {
     if (config.profit) this.profitSignal = new ProfitLossSignal(this, config.profit);
     if (config.sma) this.smaSignal = new SmaCrossoverSignal(this, config.sma);
     if (config.rsi) this.rsiSignal = new RsiCrossoverSignal(this, config.rsi);
+    if (config.volatility) this.volatilitySignal = new VolatilityCrossoverSignal(this, config.volatility);
   }
 
   /**
@@ -98,10 +100,11 @@ export class Strategy extends RobotModule {
       profit: this.profitSignal?.calc(signalParams),
       rsi: this.rsiSignal?.calc(signalParams),
       sma: this.smaSignal?.calc(signalParams),
+      volatility: this.volatilitySignal?.calc(signalParams),
     };
     this.logSignals(signals);
     // todo: здесь может быть более сложная логика комбинации сигналов.
-    return signals.profit || signals.rsi || signals.sma;
+    return signals.profit || signals.rsi || signals.sma || signals.volatility;
   }
 
   /**
@@ -202,6 +205,7 @@ export class Strategy extends RobotModule {
       this.profitSignal?.minCandlesCount || 0,
       this.smaSignal?.minCandlesCount || 0,
       this.rsiSignal?.minCandlesCount || 0,
+      this.volatilitySignal?.minCandlesCount || 0,
     ];
     return Math.max(...minCounts);
   }
