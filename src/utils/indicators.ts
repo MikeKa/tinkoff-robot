@@ -1,7 +1,7 @@
 /**
  * Расчет индикаторов.
  */
-import { SMA, EMA, RSI } from '@debut/indicators';
+import { SMA, EMA, RSI, BollingerBands } from '@debut/indicators';
 
 export type Series = number[];
 
@@ -27,6 +27,14 @@ export function ema(prices: Series, length: number) {
  export function rsi(prices: Series, length: number) {
   const rsi = new RSI(length);
   return prices.map(price => rsi.nextValue(price));
+}
+
+/**
+ * Bollinger Bands
+ */
+ export function bands(prices: Series, length: number) {
+  const bands = new BollingerBands(length);
+  return prices.map(price => bands.nextValue(price));
 }
 
 /**
